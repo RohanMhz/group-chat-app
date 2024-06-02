@@ -6,25 +6,25 @@ const { TextArea } = Input;
 
 const Chat = () => {
   const [messages, setMessages] = useState([
-    { text: "Oe mz", sender: 'u' },
-    { text: "Oe tori", sender: 'u' }
+    { text: "hello there", sender: 'u' },
+    { text: "hello", sender: 'u' }
   ]);
   const [message, setMessage] = useState('');
-  const [replyTo, setReplyTo] = useState(null);
+  const [replyTo, setReplyTo] = useState(null); // Track the message being replied to
 
   const handleSendMessage = () => {
     if (message.trim()) {
       setMessages([...messages, { text: message, sender: 'me' }]);
       setMessage('');
-      setReplyTo(null);
+      setReplyTo(null); // Clear the reply state after sending the message
     }
   };
 
-  const handleReply = (index) => {
-    const textToReply = messages[index].text;
-    setReplyTo(textToReply);
-    setMessage();
-  };
+  // const handleReply = (index) => {
+  //   const textToReply = messages[index].text;
+  //   setReplyTo(textToReply); // Set the reply state
+  //   setMessage();
+  // };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -51,7 +51,6 @@ const Chat = () => {
                 {msg.sender !== 'me' && (
                   <Button
                     type="link"
-                    onClick={() => handleReply(index)}
                     className="text-blue-500 text-xs"
                   >
                     Reply
