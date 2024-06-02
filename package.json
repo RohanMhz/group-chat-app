@@ -1,0 +1,12 @@
+{
+	"dependencies": {
+		"concurrently": "^8.2.2"
+	},
+    "scripts": {
+        "src" : "cd packages/frontend && pnpm dev",
+        "server": "cd packages/backend && pnpm start",
+        "install:frontend": "cd packages/frontend && pnpm install",
+        "install:backend": "cd packages/backend && pnpm install",
+        "start:all": "concurrently \"pnpm run server\" \"pnpm run src\""
+    }
+}
